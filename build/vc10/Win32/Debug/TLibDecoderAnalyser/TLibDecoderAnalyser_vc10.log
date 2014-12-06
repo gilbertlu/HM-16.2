@@ -1,0 +1,36 @@
+﻿已經開始建置於 2014/11/29 下午 08:30:54。
+     1>節點 2 (Build 目標) 上的專案 "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\vc10\TLibDecoderAnalyser_vc10.vcxproj"。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\..\source\Lib\\" /I"D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\..\compat\msvc" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _CRT_SECURE_NO_WARNINGS /D RExt__DECODER_DEBUG_BIT_STATISTICS=1 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TLibDecoderAnalyser\\" /Fd"D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TLibDecoderAnalyser\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\source\Lib\TLibDecoder\AnnexBread.cpp ..\..\source\Lib\TLibDecoder\NALread.cpp ..\..\source\Lib\TLibDecoder\SEIread.cpp ..\..\source\Lib\TLibDecoder\SyntaxElementParser.cpp ..\..\source\Lib\TLibDecoder\TDecBinCoderCABAC.cpp ..\..\source\Lib\TLibDecoder\TDecCAVLC.cpp ..\..\source\Lib\TLibDecoder\TDecCu.cpp ..\..\source\Lib\TLibDecoder\TDecEntropy.cpp ..\..\source\Lib\TLibDecoder\TDecGop.cpp ..\..\source\Lib\TLibDecoder\TDecSbac.cpp ..\..\source\Lib\TLibDecoder\TDecSlice.cpp ..\..\source\Lib\TLibDecoder\TDecTop.cpp
+         TDecTop.cpp
+         TDecSlice.cpp
+         TDecSbac.cpp
+         TDecGop.cpp
+         TDecEntropy.cpp
+         TDecCu.cpp
+         TDecCAVLC.cpp
+         TDecBinCoderCABAC.cpp
+         SyntaxElementParser.cpp
+         SEIread.cpp
+         NALread.cpp
+         AnnexBread.cpp
+         正在產生程式碼...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TLibDecoderAnalyser\TLibDecoderAnalyser.lib" /NOLOGO "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TLibDecoderAnalyser\AnnexBread.obj"
+         "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TLibDecoderAnalyser\NALread.obj"
+         "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TLibDecoderAnalyser\SEIread.obj"
+         "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TLibDecoderAnalyser\SyntaxElementParser.obj"
+         "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TLibDecoderAnalyser\TDecBinCoderCABAC.obj"
+         "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TLibDecoderAnalyser\TDecCAVLC.obj"
+         "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TLibDecoderAnalyser\TDecCu.obj"
+         "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TLibDecoderAnalyser\TDecEntropy.obj"
+         "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TLibDecoderAnalyser\TDecGop.obj"
+         "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TLibDecoderAnalyser\TDecSbac.obj"
+         "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TLibDecoderAnalyser\TDecSlice.obj"
+         "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TLibDecoderAnalyser\TDecTop.obj"
+         TLibDecoderAnalyser_vc10.vcxproj -> D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TLibDecoderAnalyser\TLibDecoderAnalyser.lib
+     1>專案 "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\vc10\TLibDecoderAnalyser_vc10.vcxproj" (Build 目標) 建置完成。
+
+建置成功。
+
+經過時間 00:00:15.87

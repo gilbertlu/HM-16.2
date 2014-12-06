@@ -1,0 +1,13 @@
+﻿已經開始建置於 2014/11/29 下午 08:29:02。
+     1>節點 2 (Rebuild 目標) 上的專案 "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\vc10\TAppCommon_vc10.vcxproj"。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\..\source\Lib\\" /I"D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\..\compat\msvc" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TAppCommon\\" /Fd"D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TAppCommon\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\source\Lib\TAppCommon\program_options_lite.cpp
+         program_options_lite.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TAppCommon\TAppCommon.lib" /NOLOGO "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TAppCommon\program_options_lite.obj"
+         TAppCommon_vc10.vcxproj -> D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TAppCommon\TAppCommon.lib
+     1>專案 "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\vc10\TAppCommon_vc10.vcxproj" (Rebuild 目標) 建置完成。
+
+建置成功。
+
+經過時間 00:00:03.88

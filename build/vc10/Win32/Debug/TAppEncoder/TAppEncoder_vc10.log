@@ -1,0 +1,19 @@
+﻿已經開始建置於 2014/12/6 上午 08:57:35。
+     1>節點 2 (Build 目標) 上的專案 "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\vc10\TAppEncoder_vc10.vcxproj"。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\..\source\Lib\\" /I"D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\..\compat\msvc" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TAppEncoder\\" /Fd"D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TAppEncoder\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\source\App\TAppEncoder\TAppEncCfg.cpp
+         TAppEncCfg.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\..\bin\vc10\Win32\Debug\TAppEncoder.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\..\bin\vc10\Win32\Debug\TAppEncoder.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\..\bin\vc10\Win32\Debug\TAppEncoder.lib" /MACHINE:X86 /SAFESEH "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TAppEncoder\encmain.obj"
+         "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TAppEncoder\TAppEncCfg.obj"
+         "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\vc10\Win32\Debug\TAppEncoder\TAppEncTop.obj"
+         "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\vc10\Win32\Debug\TAppCommon\TAppCommon.lib"
+         "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\vc10\Win32\Debug\TLibCommon\TLibCommon.lib"
+         "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\vc10\Win32\Debug\TLibEncoder\TLibEncoder.lib"
+         "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\vc10\Win32\Debug\TLibVideoIo\TLibVideoIO.lib"
+         TAppEncoder_vc10.vcxproj -> D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\\..\bin\vc10\Win32\Debug\TAppEncoder.exe
+     1>專案 "D:\user\Gilbert\Video Coding\code\tags\HM-16.2\build\vc10\TAppEncoder_vc10.vcxproj" (Build 目標) 建置完成。
+
+建置成功。
+
+經過時間 00:00:11.23
