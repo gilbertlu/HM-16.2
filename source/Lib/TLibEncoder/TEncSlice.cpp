@@ -660,6 +660,36 @@ Void TEncSlice::compressSlice( TComPic* pcPic )
   TComBitCounter  tempBitCounter;
   const UInt      frameWidthInCtus = pcPic->getPicSym()->getFrameWidthInCtus();
 
+  // Gilbert, 2014.12.21
+  printf("tile = \n");
+  for (int i=0; i<5; i++) {
+	for (int j=0; j<6; j++) {
+	    UInt tile = pcPic->getPicSym()->getTileIdxMap(i*6+j);
+	    printf("%d, ", tile);
+	}
+	printf("\n");
+  }
+
+  printf("TsToRs = \n");
+  for (int i=0; i<5; i++) {
+	for (int j=0; j<6; j++) {
+		UInt tile = pcPic->getPicSym()->getCtuTsToRsAddrMap(i*6+j);
+	    printf("%d, ", tile);
+	}
+	printf("\n");
+  }
+
+  printf("RsToTs = \n");
+  for (int i=0; i<5; i++) {
+	for (int j=0; j<6; j++) {
+		UInt tile = pcPic->getPicSym()->getCtuRsToTsAddrMap(i*6+j);
+	    printf("%d, ", tile);
+	}
+	printf("\n");
+  }
+
+
+
   //------------------------------------------------------------------------------
   //  Weighted Prediction parameters estimation.
   //------------------------------------------------------------------------------
@@ -724,14 +754,18 @@ Void TEncSlice::compressSlice( TComPic* pcPic )
   for( UInt ctuTsAddr = startCtuTsAddr; ctuTsAddr < boundingCtuTsAddr; ++ctuTsAddr )
   {
     const UInt ctuRsAddr = pcPic->getPicSym()->getCtuTsToRsAddrMap(ctuTsAddr);
+	printf("ctuRsAddr = %d \n", ctuRsAddr);
     // initialize CTU encoder
     TComDataCU* pCtu = pcPic->getCtu( ctuRsAddr );
     pCtu->initCtu( pcPic, ctuRsAddr );
 
     // update CABAC state
     const UInt firstCtuRsAddrOfTile = pcPic->getPicSym()->getTComTile(pcPic->getPicSym()->getTileIdxMap(ctuRsAddr))->getFirstCtuRsAddr();
+	//printf("firstCtuRsAddrOfTile = %d \n", firstCtuRsAddrOfTile);
     const UInt tileXPosInCtus = firstCtuRsAddrOfTile % frameWidthInCtus;
+	//printf("tileXPosInCtus = %d \n", tileXPosInCtus);
     const UInt ctuXPosInCtus  = ctuRsAddr % frameWidthInCtus;
+	//printf("ctuXPosInCtus = %d \n", ctuXPosInCtus);
     
     if (ctuRsAddr == firstCtuRsAddrOfTile)
     {
@@ -757,6 +791,8 @@ Void TEncSlice::compressSlice( TComPic* pcPic )
     // set go-on entropy coder (used for all trial encodings - the cu encoder and encoder search also have a copy of the same pointer)
     m_pcEntropyCoder->setEntropyCoder ( m_pcRDGoOnSbacCoder, pcSlice );
     m_pcEntropyCoder->setBitstream( &tempBitCounter );
+	//UInt bits = tempBitCounter.getNumberOfWrittenBits();
+	//printf("bits = %d \n", bits);
     tempBitCounter.resetBits();
     m_pcRDGoOnSbacCoder->load( m_pppcRDSbacCoder[0][CI_CURR_BEST] ); // this copy is not strictly necessary here, but indicates that the GoOnSbacCoder
                                                                      // is reset to a known state before every decision process.
@@ -764,6 +800,7 @@ Void TEncSlice::compressSlice( TComPic* pcPic )
     ((TEncBinCABAC*)m_pcRDGoOnSbacCoder->getEncBinIf())->setBinCountingEnableFlag(true);
 
     Double oldLambda = m_pcRdCost->getLambda();
+	//printf("oldLambda = %f \n", oldLambda);
     if ( m_pcCfg->getUseRateCtrl() )
     {
       Int estQP        = pcSlice->getSliceQp();
@@ -817,6 +854,9 @@ Void TEncSlice::compressSlice( TComPic* pcPic )
 
     m_pcEntropyCoder->setEntropyCoder ( m_pppcRDSbacCoder[0][CI_CURR_BEST], pcSlice );
     m_pcEntropyCoder->setBitstream( &tempBitCounter );
+	//m_fifo
+	
+    tempBitCounter.resetBits();
     pRDSbacCoder->setBinCountingEnableFlag( true );
     m_pppcRDSbacCoder[0][CI_CURR_BEST]->resetBits();
     pRDSbacCoder->setBinsCoded( 0 );
@@ -889,6 +929,14 @@ Void TEncSlice::compressSlice( TComPic* pcPic )
     m_uiPicTotalBits += pCtu->getTotalBits();
     m_dPicRdCost     += pCtu->getTotalCost();
     m_uiPicDist      += pCtu->getTotalDistortion();
+
+	//======== Gilbert =========
+	UInt numPart = pCtu->getTotalNumPart();
+	printf("numPart = %d \n", numPart);
+	printf("m_uiPicTotalBits = %ld \n", m_uiPicTotalBits);
+	printf("m_dPicRdCost = %f \n", m_dPicRdCost);
+	printf("m_uiPicDist = %ld \n", m_uiPicDist);
+
   }
 
   // store context state at the end of this slice-segment, in case the next slice is a dependent slice and continues using the CABAC contexts.
