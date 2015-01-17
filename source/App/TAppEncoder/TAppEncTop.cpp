@@ -453,6 +453,9 @@ Void TAppEncTop::encode()
 
     // increase number of received frames
     m_iFrameRcvd++;
+	printf("=======================\n");
+	printf("Frame_Num = %d \n", m_iFrameRcvd);
+	printf("=======================\n");
 
     bEos = (m_isField && (m_iFrameRcvd == (m_framesToBeEncoded >> 1) )) || ( !m_isField && (m_iFrameRcvd == m_framesToBeEncoded) );
 
