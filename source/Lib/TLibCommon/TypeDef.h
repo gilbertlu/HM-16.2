@@ -47,11 +47,11 @@
 // Debugging
 // ====================================================================================================================
 
-// #define DEBUG_STRING                 // enable to print out final decision debug info at encoder and decoder
+ #define DEBUG_STRING                 // enable to print out final decision debug info at encoder and decoder
 // #define DEBUG_ENCODER_SEARCH_BINS    // enable to print out each bin as it is coded during encoder search
 // #define DEBUG_CABAC_BINS             // enable to print out each bin as it is coded during final encode and decode
 // #define DEBUG_INTRA_SEARCH_COSTS     // enable to print out the cost for each mode during encoder search
-// #define DEBUG_TRANSFORM_AND_QUANTISE // enable to print out each TU as it passes through the transform-quantise-dequantise-inverseTransform process
+//#define DEBUG_TRANSFORM_AND_QUANTISE // enable to print out each TU as it passes through the transform-quantise-dequantise-inverseTransform process
 
 #ifdef DEBUG_STRING
   #define DEBUG_STRING_PASS_INTO(name) , name

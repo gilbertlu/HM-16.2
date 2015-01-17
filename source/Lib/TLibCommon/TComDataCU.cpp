@@ -1762,6 +1762,8 @@ Void TComDataCU::setQPSubParts( Int qp, UInt uiAbsPartIdx, UInt uiDepth )
 {
   const UInt numPart = m_pcPic->getNumPartitionsInCtu() >> (uiDepth << 1);
   memset(m_phQP+uiAbsPartIdx, qp, numPart);
+  // Gilbert hack, 2014.01.17, it has effect for QP = 50
+  //memset(m_phQP + uiAbsPartIdx, 50, numPart);
 }
 
 Void TComDataCU::setIntraDirSubParts( const ChannelType channelType, const UInt dir, const UInt absPartIdx, const UInt depth )

@@ -110,7 +110,7 @@ QpParam::QpParam(const TComDataCU &cu, const ComponentID compID)
 
     chromaQpOffset += cu.getSlice()->getPPS()->getChromaQpAdjTableAt(cu.getChromaQpAdj(0)).u.offset[Int(compID)-1];
   }
-
+  
   *this = QpParam(cu.getQP( 0 ),
                   toChannelType(compID),
                   cu.getSlice()->getSPS()->getQpBDOffset(toChannelType(compID)),
@@ -1407,6 +1407,11 @@ Void TComTrQuant::transformNxN(       TComTU        & rTu,
               pcArlCoeff,
 #endif
               uiAbsSum, compID, cQP );
+
+	  
+	  // Gilbert add for testing Qp value, 2014.01.12
+	  //if ((cQP.Qp != 32) && (cQP.Qp != 31))
+	  //	  printf("Qp = %d, per = %d, rem = %d", cQP.Qp, cQP.per, cQP.rem);
 
 #ifdef DEBUG_TRANSFORM_AND_QUANTISE
       std::cout << g_debugCounter << ": " << uiWidth << "x" << uiHeight << " channel " << compID << " TU at output of quantiser\n";
