@@ -381,7 +381,24 @@ Void TEncCu::xCompressCU( TComDataCU*& rpcBestCU, TComDataCU*& rpcTempCU, UInt u
   UInt uiTPelY   = rpcBestCU->getCUPelY();
   UInt uiBPelY   = uiTPelY + rpcBestCU->getHeight(0) - 1;
 
+  // Gilbert, 2014.01.17
+  //printf("uiLPelX = %d, uiRPelX = %d\n", uiLPelX, uiRPelX);
+  //printf("uiTPelY = %d, uiBPelY = %d\n", uiTPelY, uiBPelY);
+  /*
+  if ((uiLPelX >= 192) && (uiRPelX < 256) && (uiTPelY >= 192) && (uiBPelY < 256)) {
+    rpcTempCU->getSlice()->setSliceQp(8); // take effect
+	rpcTempCU->getSlice()->setSliceQpBase(8);
+  }
+  else {
+	rpcTempCU->getSlice()->setSliceQp(8);
+	rpcTempCU->getSlice()->setSliceQpBase(8);
+  }
+  */
+
+
   Int iBaseQP = xComputeQP( rpcBestCU, uiDepth );
+  // Gilbert, 2014.01.17
+  //printf("iBaseQP = %d \n", iBaseQP);
   Int iMinQP;
   Int iMaxQP;
   Bool isAddLowestQP = false;
@@ -405,6 +422,10 @@ Void TEncCu::xCompressCU( TComDataCU*& rpcBestCU, TComDataCU*& rpcTempCU, UInt u
     iMinQP = m_pcRateCtrl->getRCQP();
     iMaxQP = m_pcRateCtrl->getRCQP();
   }
+
+  // Gilbert hack
+  //iMaxQP = 50;
+  //iMinQP = 50;
 
   // transquant-bypass (TQB) processing loop variable initialisation ---
 
@@ -737,6 +758,10 @@ Void TEncCu::xCompressCU( TComDataCU*& rpcBestCU, TComDataCU*& rpcTempCU, UInt u
     iMaxQP = iMinQP; // If all TUs are forced into using transquant bypass, do not loop here.
   }
 
+  // Gilbert hack, 2014.01.17
+  //iMinQP = 50;
+  //iMaxQP = 50;
+
   for (Int iQP=iMinQP; iQP<=iMaxQP; iQP++)
   {
     const Bool bIsLosslessMode = false; // False at this level. Next level down may set it to true.
@@ -909,6 +934,11 @@ Int TEncCu::xComputeQP( TComDataCU* pcCU, UInt uiDepth )
 {
   Int iBaseQp = pcCU->getSlice()->getSliceQp();
   Int iQpOffset = 0;
+  // Gilbert, 2014.01.17
+  //pcCU->getDepth();
+  //printf(" uiDepth = %d \n", uiDepth);
+  //printf(" RsAddr = %d \n", pcCU->getCtuRsAddr());
+  
   if ( m_pcEncCfg->getUseAdaptiveQP() )
   {
     TEncPic* pcEPic = dynamic_cast<TEncPic*>( pcCU->getPic() );
@@ -939,12 +969,17 @@ Int TEncCu::xComputeQP( TComDataCU* pcCU, UInt uiDepth )
 Void TEncCu::xEncodeCU( TComDataCU* pcCU, UInt uiAbsPartIdx, UInt uiDepth )
 {
   TComPic* pcPic = pcCU->getPic();
-
+  // Gilbert
+  //printf("uiAbsPartIdx = %d \n", uiAbsPartIdx);
   Bool bBoundary = false;
   UInt uiLPelX   = pcCU->getCUPelX() + g_auiRasterToPelX[ g_auiZscanToRaster[uiAbsPartIdx] ];
   UInt uiRPelX   = uiLPelX + (g_uiMaxCUWidth>>uiDepth)  - 1;
   UInt uiTPelY   = pcCU->getCUPelY() + g_auiRasterToPelY[ g_auiZscanToRaster[uiAbsPartIdx] ];
   UInt uiBPelY   = uiTPelY + (g_uiMaxCUHeight>>uiDepth) - 1;
+  // Gilbert
+  //printf("uiLPelX = %d, uiRPelX = %d \n", uiLPelX, uiRPelX);
+  //printf("uiTPelY = %d, uiBPelY = %d \n", uiTPelY, uiBPelY);
+
 
   TComSlice * pcSlice = pcCU->getPic()->getSlice(pcCU->getPic()->getCurrSliceIdx());
   if( ( uiRPelX < pcSlice->getSPS()->getPicWidthInLumaSamples() ) && ( uiBPelY < pcSlice->getSPS()->getPicHeightInLumaSamples() ) )

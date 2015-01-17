@@ -1230,6 +1230,11 @@ Void TEncSearch::xIntraCodingTUBlock(       TComYuv*    pcOrgYuv,
     pcCU       ->setTrIdxSubParts ( uiTrDepth, uiAbsPartIdx, uiFullDepth );
   }
 
+  //pcCU->setQP(0, 8); // Gilbert add, 2014.01.13
+  //printf("idx_0 = %d \n", pcCU->getQP(0));
+  //printf("idx_1 = %d \n", pcCU->getQP(1));
+  //printf("idx_2 = %d \n", pcCU->getQP(2));
+
   const QpParam cQP(*pcCU, compID);
 
 #if RDOQ_CHROMA_LAMBDA
