@@ -28,7 +28,8 @@ void enNode(node *prev,UInt* pixId,UInt w,UInt h){
 	return;
 }
 int main(){
-	queue<node*> myqueue;
+	
+	vector<node*> myqueue;
 	int T;
 	int m,n;
 	int startNode,endNode;
@@ -41,7 +42,7 @@ int main(){
 
 	while(fscanf(inf,"%s",&f)>0){
 
-		
+
 		fscanf(inf,"%d",&n);
 		NODE *pix,*prev;
 		for (int i=0;i<n;i++){
@@ -69,39 +70,39 @@ int main(){
 			}
 		}
 		//printf("%u,%u,%u,%u\n",x,y,w,h);
-		myqueue.push(pix);
 		
+		myqueue.push_back(pix);
+
 	}
+	/*for(int i = 0; i < myqueue.size(); i++){
+		NODE *temp = myqueue[i];
+		while(temp!=NULL){
+			printf("x=%u,y=%u,w=%u,h=%u\n",temp->pixId[0],temp->pixId[1],temp->w,temp->h);
+			temp=temp->next;
+		}
+	}*/
 	
-		/*while(!myqueue.empty()){
-			NODE *temp=myqueue.front(); 
-			myqueue.pop();
-			while(temp!=NULL){
-				printf("x=%u,y=%u,w=%u,h=%u\n",temp->pixId[0],temp->pixId[1],temp->w,temp->h);
-				temp=temp->next;
-			}
-	    }*/
-	NODE *temp=myqueue.front();
+	/*NODE *temp=myqueue.front();
 	bool t;
-	t=Pic2Block(temp,417,176);
+	t=Pic2Block(temp,417,176);*/
 	return 0;
 }
 
 
 bool Pic2Block(node *ptr,UInt lx,UInt ly){
-UInt BLK_w=16;
-UInt BLK_h=BLK_w;
-  NODE *temp = ptr;
-  int L,R,T,B;
-  while(temp!=NULL){
-        
-        L=temp->pixId[0];
+	UInt BLK_w=16;
+	UInt BLK_h=BLK_w;
+	NODE *temp = ptr;
+	int L,R,T,B;
+	while(temp!=NULL){
+
+		L=temp->pixId[0];
 		R=L+temp->w;
 		T=temp->pixId[1];
 		B=T+temp->h;
 		if(lx>=((L/BLK_w)*BLK_w) && lx<=((R/BLK_w)*BLK_w) && ly>=((T/BLK_h)*BLK_h) && ly<=((B/BLK_h)*BLK_h) ) 
 			return true;
 		temp = temp->next;
-  }
-  return false;
+	}
+	return false;
 }
