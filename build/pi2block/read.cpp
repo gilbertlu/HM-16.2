@@ -38,20 +38,21 @@ int main(){
 	UInt x,y,w,h; 
 
 	FILE *inf;
-	inf=fopen("test.txt","r");
+	inf=fopen("pdtrnDetectOld.txt","r");
 
 	while(fscanf(inf,"%s",&f)>0){
 
 
 		fscanf(inf,"%d",&n);
 		NODE *pix,*prev;
+		pix=new NODE[1];
 		for (int i=0;i<n;i++){
 			fscanf(inf,"%u",&x);
 			fscanf(inf,"%u",&y);
 			fscanf(inf,"%u",&w);
 			fscanf(inf,"%u",&h);
 			if(i==0){				
-				pix=new NODE[1];
+				
 				pix->pixId=new UInt[2];
 				pix->pixId[0]=x;
 				pix->pixId[1]=y;
@@ -70,21 +71,24 @@ int main(){
 			}
 		}
 		//printf("%u,%u,%u,%u\n",x,y,w,h);
-		
+		if(n==0){
+			myqueue.push_back(NULL);
+		}else{
 		myqueue.push_back(pix);
-
+		}
 	}
 	/*for(int i = 0; i < myqueue.size(); i++){
 		NODE *temp = myqueue[i];
+		printf("frame %d:\n", i);
 		while(temp!=NULL){
 			printf("x=%u,y=%u,w=%u,h=%u\n",temp->pixId[0],temp->pixId[1],temp->w,temp->h);
 			temp=temp->next;
 		}
 	}*/
 	
-	/*NODE *temp=myqueue.front();
+	/*NODE *temp=myqueue[285];
 	bool t;
-	t=Pic2Block(temp,417,176);*/
+	t=Pic2Block(temp,0,0);*/
 	return 0;
 }
 
